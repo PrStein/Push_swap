@@ -16,8 +16,11 @@ int main(int av, char **ac)
 	init_int(&t, av);
 	init_tab(&t, ac);
 	push_b(&t);
-	// push_b(&t);
-	// push_b(&t);
+	push_b(&t);
+	// push_a(&t);
+	// swap_a(&t);
+	// swap_b(&t);
+	// swap_a_swap_b(&t);
 
 
 	while (i < t.size_a)
@@ -27,6 +30,7 @@ int main(int av, char **ac)
 	}
 	printf("\n");
 	i = 0;
+	printf("%d\n\n", t.size_b);
 	while (i < t.size_b)
 	{
 		printf("%d\n", t.b.tab[i]);
