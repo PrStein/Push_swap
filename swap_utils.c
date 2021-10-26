@@ -27,17 +27,23 @@ void	replace_b(t_struct *t, int *tmp)
 {
 	int i;
 
-	i = 1;
-	while (i < t->size_b)
+	if (tmp)
 	{
-		t->b.tab[i] = tmp[i - 1];
-		i++;
+		i = 1;
+		while (i < t->size_b)
+		{
+			t->b.tab[i] = tmp[i - 1];
+			i++;
+		}
+		free_tmp(tmp);
+
 	}
-	free_tmp(tmp);
-	t->size_a--;
+	// t->size_a--;
+	// tmp = malloc(sizeof(int) * t->size_a);
 	tmp = malloc(sizeof(int) * t->size_a);
 	if (!tmp)
 		free_tmp(tmp);
+	t->size_a--;
 	tmp = t->a.tab;
 	free_tab_a(t);
 	t->a.tab = malloc(sizeof(int) * t->size_a);

@@ -32,20 +32,23 @@ void	push_b(t_struct *t)
 
 		tmp = NULL;
 		t->size_b++;
-		tmp = malloc(sizeof(int) * t->size_b);
-		if (!tmp)
-			free_tmp(tmp);
+		// tmp = malloc(sizeof(int) * t->size_b);
+		// if (!tmp)
+		// 	free_tmp(tmp);
 		if (t->b.tab)
 		{
+			tmp = malloc(sizeof(int) * t->size_b);
+			if (!tmp)
+				free_tmp(tmp);
 			tmp = t->b.tab;
 			free_tab_b(t);
 		}
-		t->b.tab = malloc(sizeof(int) * t->size_b + 1);
+		t->b.tab = malloc(sizeof(int) * t->size_b);
 		if (!t->b.tab)
 			free_tab_b(t);
 		t->b.tab[0] = t->a.tab[0];
 		replace_b(t, tmp);
-		free_tmp(tmp);
+		// free_tmp(tmp);
 	}
 }
 
