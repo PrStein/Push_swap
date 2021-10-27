@@ -23,36 +23,21 @@ void	free_tab_b(t_struct *t)
 	t->b.tab = NULL;
 }
 
-void	replace_b(t_struct *t, int *tmp)
+void	replace_b(t_struct *t)
 {
+	int *tmp;
 	int i;
 
-	if (tmp)
-	{
-		i = 1;
-		while (i < t->size_b)
-		{
-			t->b.tab[i] = tmp[i - 1];
-			i++;
-		}
-		free_tmp(tmp);
-
-	}
-	// t->size_a--;
-	// tmp = malloc(sizeof(int) * t->size_a);
-	tmp = malloc(sizeof(int) * t->size_a);
+	t->size_a--;
+	tmp = malloc(sizeof(int) * (t->size_a));
 	if (!tmp)
 		free_tmp(tmp);
-	t->size_a--;
-	tmp = t->a.tab;
-	free_tab_a(t);
-	t->a.tab = malloc(sizeof(int) * t->size_a);
-	if (!t->a.tab)
-		free_tab_a(t);
-	i = 0;
-	while (i < t->size_a)
+	i = 1;
+	while (i <= t->size_a)
 	{
-		t->a.tab[i] = tmp[i + 1];
+		tmp[i - 1] = t->a.tab[i];
 		i++;
 	}
+	free_tab_a(t);
+	t->a.tab = tmp;
 }

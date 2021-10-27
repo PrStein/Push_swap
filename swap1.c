@@ -28,27 +28,24 @@ void	push_b(t_struct *t)
 {
 	if (t->a.tab)
 	{
+		int i;
 		int *tmp;
 
 		tmp = NULL;
+		i = 0;
 		t->size_b++;
-		// tmp = malloc(sizeof(int) * t->size_b);
-		// if (!tmp)
-		// 	free_tmp(tmp);
-		if (t->b.tab)
-		{
 			tmp = malloc(sizeof(int) * t->size_b);
 			if (!tmp)
 				free_tmp(tmp);
-			tmp = t->b.tab;
-			free_tab_b(t);
+			tmp[0] = t->a.tab[0];
+		while (i < t->size_b - 1)
+		{
+			tmp[i + 1] = t->b.tab[i];
+			i++;
 		}
-		t->b.tab = malloc(sizeof(int) * t->size_b);
-		if (!t->b.tab)
-			free_tab_b(t);
-		t->b.tab[0] = t->a.tab[0];
-		replace_b(t, tmp);
-		// free_tmp(tmp);
+		free_tab_b(t);
+		t->b.tab = tmp;
+		replace_b(t);
 	}
 }
 
@@ -56,23 +53,23 @@ void	push_a(t_struct *t)
 {
 	if (t->b.tab)
 	{
+		int i;
 		int *tmp;
 
 		tmp = NULL;
-		tmp = malloc(sizeof(int) * t->size_a);
-		if (!tmp)
-			free_tmp(tmp);
-		if (t->a.tab)
-		{
-			tmp = t->a.tab;
-			free_tab_a(t);
-		}
+		i = 0;
 		t->size_a++;
-		t->a.tab = malloc(sizeof(int) * t->size_a);
-		if (!t->a.tab)
-			free_tab_a(t);
-		t->a.tab[0] = t->b.tab[0];
-		replace_a(t, tmp);
-		free_tmp(tmp);
+			tmp = malloc(sizeof(int) * t->size_a);
+			if (!tmp)
+				free_tmp(tmp);
+			tmp[0] = t->b.tab[0];
+		while (i < t->size_a - 1)
+		{
+			tmp[i + 1] = t->a.tab[i];
+			i++;
+		}
+		free_tab_a(t);
+		t->a.tab = tmp;
+		replace_a(t);
 	}
 }

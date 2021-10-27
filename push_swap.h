@@ -31,11 +31,16 @@ void	push_b(t_struct *t);
 void	init_int(t_struct *t, int av);
 void	free_tab_b(t_struct *t);
 void	free_tab_a(t_struct *t);
-void	replace_b(t_struct *t, int *tmp);
+void	replace_b(t_struct *t);
 void	free_all(t_struct *t);
 void	free_tmp(int *tmp);
 void	push_a(t_struct *t);
-void	replace_a(t_struct *t, int *tmp);
+void	replace_a(t_struct *t);
+void	copy_a(t_struct *, int *tmp);
+void	rotate_a(t_struct *t);
+void	rotate_b(t_struct *t);
+void	rotate_a_rotate_b(t_struct *t);
+void	reverse_rotate_a(t_struct *t);
 // void	replace_a(t_struct *t, int tmp);
 
 #endif

@@ -16,10 +16,13 @@ int main(int av, char **ac)
 	init_int(&t, av);
 	init_tab(&t, ac);
 	push_b(&t);
-	// push_b(&t);
-	// push_b(&t);
+	push_b(&t);
+	push_b(&t);
 
 	// push_a(&t);
+	reverse_rotate_a(&t);
+	// rotate_b(&t);
+	// rotate_a_rotate_b(&t);
 	// swap_a(&t);
 	// swap_b(&t);
 	// swap_a_swap_b(&t);
