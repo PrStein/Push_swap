@@ -1,5 +1,44 @@
 #include "push_swap.h"
 
+int	verif_order(t_struct *t)
+{
+	int i;
+
+	i = 0;
+	while (i < t->size_a - 1)
+	{
+		if (t->a.tab[i] > t->a.tab[i + 1])
+			return(1);
+		i++;
+	}
+	return(0);
+}
+
+int	check_error(t_struct *t, char **ac)
+{
+	int i;
+	int x;
+	int j;
+
+	x = 1;
+	while (ac[x])
+	{
+		j = 0;
+		while (ac[x][j])
+		{
+			if (ac[x][j] < '0' || ac[x][j] > '9')
+				return(1);
+			j++;
+		}
+		i = x + 1;
+		while (ac[i])
+			if (ft_strncmp(ac[x], ac[i++], ft_strlen(ac[x])) == 0)
+				return (1);
+		x++;
+	}
+	return (0);
+}
+
 void	init_tab(t_struct *t, char **ac)
 {
 	int i;
@@ -7,10 +46,10 @@ void	init_tab(t_struct *t, char **ac)
 
 	i = 1;
 	j = 0;
-	t->a.tab = malloc(sizeof(int) * (t->n_int - 1));
+	t->a.tab = malloc(sizeof(int) * (t->n_int));
 	if (!t->a.tab)
 		return ;
-	while (i < t->n_int)
+	while (i <= t->n_int)
 	{
 		t->a.tab[j] = ft_atoi(ac[i]);
 		i++;

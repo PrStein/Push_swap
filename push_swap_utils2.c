@@ -19,15 +19,15 @@ void	replace_a(t_struct *t)
 	t->b.tab = tmp;
 }
 
-void	copy_a(t_struct *t, int *tmp)
-{
-	int i;
-
-	i = 0;
-	tmp = malloc(sizeof(int) * t->size_a);
-	while (i < t->size_a - 1)
-	{
-		tmp[i] = t->a.tab[i];
-		i++;
-	}
-}
+// void	copy_a(t_struct *t, int *tmp)
+// {
+// 	int i;
+//
+// 	i = 0;
+// 	tmp = malloc(sizeof(int) * t->size_a);
+// 	while (i < t->size_a - 1)
+// 	{
+// 		tmp[i] = t->a.tab[i];
+// 		i++;
+// 	}
+// }

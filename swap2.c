@@ -13,6 +13,8 @@ void	rotate_a(t_struct *t)
 		i++;
 	}
 	t->a.tab[i] = tmp;
+	t->move++;
+
 }
 
 void	rotate_b(t_struct *t)
@@ -28,36 +30,44 @@ void	rotate_b(t_struct *t)
 		i++;
 	}
 	t->b.tab[i] = tmp;
+	t->move++;
 }
 
 void	rotate_a_rotate_b(t_struct *t)
 {
 	rotate_a(t);
 	rotate_b(t);
+	t->move++;
 }
 
 void	reverse_rotate_a(t_struct *t)
 {
-	int *tmp;
-	int tp;
 	int i;
+	int tmp;
 
-	i = 0;
-	tp = 0;
-	tmp = malloc(sizeof(int) * t->size_a - 1);
-	if (!tmp)
-		free_tmp(tmp);
-	tp = t->a.tab[t->size_a];
-	while (i < t->size_a)
+	i = t->size_a - 1;
+	tmp = t->a.tab[i];
+	while (i > 0)
 	{
-		tmp[i] = t->a.tab[i + 1];
-		i++;
+		t->a.tab[i] = t->a.tab[i - 1];
+		i--;
 	}
-	t->a.tab[0] = tp;
-	i = 0;
-	while (i < t->size_a)
+	t->a.tab[i] = tmp;
+	t->move++;
+}
+
+void	reverse_rotate_b(t_struct *t)
+{
+	int i;
+	int tmp;
+
+	i = t->size_b - 1;
+	tmp = t->b.tab[i];
+	while (i > 0)
 	{
-		t->a.tab[i + 1] = tmp[i];
-		i++;
+		t->b.tab[i] = t->b.tab[i - 1];
+		i--;
 	}
+	t->b.tab[i] = tmp;
+	t->move++;
 }

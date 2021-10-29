@@ -20,6 +20,7 @@ typedef struct s_struct
 	int count_b;
 	int size_a;
 	int size_b;
+	int	move;
 }		t_struct;
 
 void	init_tab(t_struct *t, char **ac);
@@ -36,11 +37,19 @@ void	free_all(t_struct *t);
 void	free_tmp(int *tmp);
 void	push_a(t_struct *t);
 void	replace_a(t_struct *t);
-void	copy_a(t_struct *, int *tmp);
 void	rotate_a(t_struct *t);
 void	rotate_b(t_struct *t);
 void	rotate_a_rotate_b(t_struct *t);
 void	reverse_rotate_a(t_struct *t);
-// void	replace_a(t_struct *t, int tmp);
+void	reverse_rotate_b(t_struct *t);
+void	reverse_rotate_all(t_struct *t);
+int	check_error(t_struct *t, char **ac);
+void	sort(t_struct *t);
+void	sort_int_tab_3(t_struct *t);
+int	verif_order(t_struct *t);
+void	s_a_r_a(t_struct *t);
+void	swap_r_r(t_struct *t);
+void	sort_int_tab_5(t_struct *t);
+void	place_a(t_struct *t);
 
 #endif

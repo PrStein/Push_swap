@@ -7,6 +7,7 @@ void	swap_a(t_struct *t)
 	tmp = t->a.tab[0];
 	t->a.tab[0] = t->a.tab[1];
 	t->a.tab[1] = tmp;
+	t->move++;
 }
 
 void	swap_b(t_struct *t)
@@ -16,12 +17,14 @@ void	swap_b(t_struct *t)
 	tmp = t->b.tab[0];
 	t->b.tab[0] = t->b.tab[1];
 	t->b.tab[1] = tmp;
+	t->move++;
 }
 
 void	swap_a_swap_b(t_struct *t)
 {
 	swap_a(t);
 	swap_b(t);
+	t->move++;
 }
 
 void	push_b(t_struct *t)
@@ -47,6 +50,7 @@ void	push_b(t_struct *t)
 		t->b.tab = tmp;
 		replace_b(t);
 	}
+	t->move++;
 }
 
 void	push_a(t_struct *t)
@@ -72,4 +76,5 @@ void	push_a(t_struct *t)
 		t->a.tab = tmp;
 		replace_a(t);
 	}
+	t->move++;
 }
