@@ -33,8 +33,7 @@ int main(int av, char **ac)
 		t_struct t;
 		int i = 0;
 		init_int(&t, av);
-		init_tab(&t, ac);
-		if (check_error(&t, ac) == 1 || check_int_and_double(&t) == 1)
+		if (init_tab(&t, ac) == 1)
 		{
 			ft_putstr_fd("Error\n", 1);
 			return (0);

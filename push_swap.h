@@ -23,7 +23,7 @@ typedef struct s_struct
 	int	move;
 }		t_struct;
 
-void	init_tab(t_struct *t, char **ac);
+int	init_tab(t_struct *t, char **ac);
 void	swap_a(t_struct *t);
 void	swap_a(t_struct *t);
 void	swap_b(t_struct *t);
