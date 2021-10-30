@@ -43,13 +43,16 @@ void	rotate_a_rotate_b(t_struct *t);
 void	reverse_rotate_a(t_struct *t);
 void	reverse_rotate_b(t_struct *t);
 void	reverse_rotate_all(t_struct *t);
-int	check_error(t_struct *t, char **ac);
 void	sort(t_struct *t);
 void	sort_int_tab_3(t_struct *t);
-int	verif_order(t_struct *t);
 void	s_a_r_a(t_struct *t);
 void	swap_r_r(t_struct *t);
 void	sort_int_tab_5(t_struct *t);
 void	place_a(t_struct *t);
+void	place_a_norme(t_struct *t, int i, int j, int tmp);
+
+int	verif_order(t_struct *t);
+int	check_int_and_double(t_struct *t);
+int	check_error(t_struct *t, char **ac);
 
 #endif
