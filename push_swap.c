@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sadjigui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 18:12:56 by sadjigui          #+#    #+#             */
+/*   Updated: 2021/11/08 18:13:07 by sadjigui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	reverse_rotate_all(t_struct *t)
@@ -26,12 +38,15 @@ void	init_int(t_struct *t, int av)
 	t->n_int = av - 1;
 	t->move = 0;
 }
-int main(int av, char **ac)
+
+int	main(int av, char **ac)
 {
+	t_struct	t;
+	int			i;
+
 	if (av > 1)
 	{
-		t_struct t;
-		int i = 0;
+		i = 0;
 		init_int(&t, av);
 		if (init_tab(&t, ac) == 1)
 		{
@@ -47,10 +62,7 @@ int main(int av, char **ac)
 		while (i < t.size_a)
 			printf("%d\n", t.a.tab[i++]);
 		printf("move = %d\n", t.move);
-		free_all(&t);
+		free_tab_a(&t);
 	}
-	else
-		printf("ta mere");
-	// system("leaks a.out");
 	return (0);
 }

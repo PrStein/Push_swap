@@ -22,11 +22,11 @@ static int	ft_space(const char *str)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
-	int	result;
+	long	result;
 
 	result = 0;
 	i = ft_space(str);

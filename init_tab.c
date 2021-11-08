@@ -30,10 +30,6 @@ int	check_error(t_struct *t, char **ac)
 				return(1);
 			j++;
 		}
-		// i = x + 1;
-		// while (ac[i])
-		// 	if (ft_strncmp(ac[x], ac[i++], ft_strlen(ac[x])) == 0)
-		// 		return (1);
 		x++;
 	}
 	return (0);
@@ -56,13 +52,6 @@ int	check_int_and_double(t_struct *t)
 		}
 		i++;
 	}
-	i = 0;
-	while (i <= t->n_int)
-	{
-		if (t->a.tab[i] > 2147483647)
-			return (1);
-		i++;
-	}
 	return (0);
 }
 int	init_tab(t_struct *t, char **ac)
@@ -78,14 +67,15 @@ int	init_tab(t_struct *t, char **ac)
 	while (i <= t->n_int)
 	{
 		if (ft_atoi(ac[i]) > 2147483647)
+		{
+			free_tab_a(t);
 			return (1);
-		t->a.tab[j] = ft_atoi(ac[i]);
+		}
+		t->a.tab[j] = (int)ft_atoi(ac[i]);
 		i++;
 		j++;
 	}
 	if (check_int_and_double(t) == 1 || check_error(t, ac) == 1)
-	return (1);
-	// i = 0;
-	// j = 1;
+		return (1);
 	return (0);
 }
